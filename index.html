@@ -355,6 +355,13 @@
         document.body.classList.remove('dark-ui', 'game-ui');
         if (theme === 'dark') document.body.classList.add('dark-ui');
         if (theme === 'game') document.body.classList.add('game-ui');
+        // 控制combo顯示
+        const comboText = document.getElementById('combo-text');
+        if (theme === 'game') {
+            comboText.style.opacity = '1';
+        } else {
+            comboText.style.opacity = '0';
+        }
     }
 
     function handleChapterChange(fileName) {
@@ -396,6 +403,9 @@
             if (mode === 'random20') { shuffle(vocabList); vocabList = vocabList.slice(0, 20); }
         }
         currentIndex = 0;
+        combo = 0;
+        const cb = document.getElementById('combo-text');
+        cb.innerText = `${combo} COMBO`;
         document.getElementById('menu-section').style.display = 'none';
         document.getElementById('quiz-area').style.display = 'block';
         displayWord();
@@ -407,8 +417,8 @@
         const item = vocabList[currentIndex];
         document.getElementById('word').innerText = item.word;
         document.getElementById('pos').innerText = item.pos || "";
-        document.getElementById('meaning').innerText = item.meaning;
-        document.getElementById('example').innerText = item.example || "";
+        document.getElementById('meaning').innerText = ""; // 清空中文意思
+        document.getElementById('example').innerText = ""; // 清空例句
         document.getElementById('status').innerText = `Progress: ${currentIndex + 1} / ${vocabList.length}`;
         
         const star = document.getElementById('star-icon');
@@ -421,6 +431,10 @@
         }
         isRevealed = true;
         document.getElementById('vocab-card').classList.add('is-revealed');
+        // 設置中文意思和例句
+        const item = vocabList[currentIndex];
+        document.getElementById('meaning').innerText = item.meaning;
+        document.getElementById('example').innerText = item.example || "";
     }
 
     // --- 修改：直接跳下一題，不再擋住 ---
@@ -443,6 +457,8 @@
 
     function prevWord() {
         combo = 0;
+        const cb = document.getElementById('combo-text');
+        cb.innerText = `${combo} COMBO`;
         currentIndex = (currentIndex - 1 + vocabList.length) % vocabList.length;
         displayWord();
     }
@@ -469,6 +485,8 @@
         document.getElementById('quiz-area').style.display = 'none';
         document.getElementById('menu-section').style.display = 'block';
         combo = 0;
+        const cb = document.getElementById('combo-text');
+        cb.innerText = `${combo} COMBO`;
         updateStarSummary();
     }
 
