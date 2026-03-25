@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡科技英文 背單字網站</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    
+    <style>
+        /* --- [1] 這裡完全是你原本的 CSS 樣式，完全沒動 --- */
+        :root {
+            --primary: #e82127;
+            --secondary: #171a20;
+            --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            --glass: rgba(255, 255, 255, 0.9);
+            --shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg-gradient);
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--secondary);
+            transition: all 0.5s ease; /* 為了切換模式平滑 */
+        }
+
+        .container {
+            width: 95%;
+            max-width: 900px;
+            padding: 40px;
+            transition: all 0.5s ease;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+            letter-spacing: -2px;
+            text-align: center;
+        }
+
+        .glass-panel {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .section-label {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        select {
+            width: 100%;
+            padding: 20px;
+            font-size: 1.2rem;
+            border-radius: 15px;
+            border: 2px solid #ddd;
+            background: white;
+            cursor: pointer;
+            margin-bottom: 30px;
+        }
+
+        .mode-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .mode-card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 20px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .mode-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(232, 33, 39, 0.15);
+        }
+
+        .mode-card h3 { margin: 0 0 10px 0; font-size: 1.3rem; }
+        .mode-card p { margin: 0; color: #666; font-size: 0.9rem; }
+
+        #quiz-area { display: none; width: 100%; position: relative;}
+
+        .vocab-card {
+            background: var(--glass);
+            padding: 60px 40px;
+            border-radius: 40px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            cursor: pointer;
+            min-height: 480px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 30px;
+            transition: transform 0.2s ease;
+            position: relative;
+        }
+
+        .star-toggle {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 2.5rem;
+            color: #ccc;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .star-toggle.active { color: #ffca28; transform: scale(1.1); }
+
+        .speak-btn {
+            background: #f0f0f0;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-bottom: 20px;
+            align-self: center;
+            transition: 0.3s;
+        }
+        .speak-btn:hover { background: #e0e0e0; }
+
+        .vocab-card:active { transform: scale(0.98); }
+
+        .word-display { font-size: 5rem; font-weight: 800; margin-bottom: 10px; letter-spacing: -2px; }
+        .pos-display { font-size: 1.5rem; color: #666; font-style: italic; margin-bottom: 30px; }
+        
+        .ans-box {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+        }
+
+        .is-revealed .ans-box { opacity: 1; transform: translateY(0); }
+
+        .meaning-display {
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-weight: 700;
+            background: #fff5f5;
+            display: inline-block;
+            padding: 10px 30px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .example-display {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            color: #444;
+            border-left: 5px solid var(--primary);
+            padding-left: 20px;
+            text-align: left;
+        }
+
+        .controls { display: flex; gap: 15px; align-items: center; }
+        .btn-main {
+            flex: 2;
+            padding: 25px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-radius: 20px;
+            border: none;
+            background: var(--secondary);
+            color: white;
+            border: 2px solid #ddd;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-main:hover { background: #333; }
+        
+        .btn-sub {
+            flex: 0.8;
+            padding: 25px;
+            font-size: 1rem;
+            border-radius: 20px;
+            border: 2px solid #ddd;
+            background: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-sub:hover { background: #f9f9f9; border-color: #bbb; }
+
+        .info-footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            font-weight: 600;
+            color: #666;
+        }
+
+        /* --- [2] 新增的主題與拉桿 CSS (外掛部分) --- */
+        /* 右上角拉桿樣式 */
+        .theme-switcher {
+            position: fixed; top: 20px; right: 20px;
+            width: 130px; height: 45px; background: rgba(0,0,0,0.1);
+            border-radius: 25px; display: flex; align-items: center;
+            padding: 5px; cursor: pointer; border: 1px solid rgba(255,255,255,0.3); z-index: 2000;
+        }
+        .node { flex: 1; text-align: center; font-size: 1.2rem; z-index: 2; }
+        .thumb {
+            position: absolute; width: 38px; height: 35px; background: white;
+            border-radius: 20px; left: 46px; /* 預設中間 */
+            transition: 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2); z-index: 1;
+        }
+
+        /* 深色模式修正 */
+        body.dark-ui {
+            background: #1a1a1a;
+            color: #272222;
+        }
+        body.dark-ui .glass-panel, body.dark-ui .vocab-card { background: rgba(45,45,45,0.9); border-color: #444; }
+        body.dark-ui .word-display, body.dark-ui .header h1 { color: #fff; }
+        body.dark-ui .example-display { color: #ccc; }
+        body.dark-ui .meaning-display { background: #333; }
+        body.dark-ui .btn-sub, body.dark-ui select { background: #333; color: white; border-color: #555; }
+        body.dark-ui .thumb { left: 5px; background: #555; }
+
+        /* 遊戲模式修正 */
+        body.game-ui {
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            color: #00e5ff;
+        }
+        body.game-ui .thumb { left: 87px; background: #00e5ff; }
+        body.game-ui .vocab-card { border: 2px solid #00e5ff; box-shadow: 0 0 20px rgba(0,229,255,0.3); }
+        body.game-ui .meaning-display { color: #00e5ff; background: rgba(0,229,255,0.1); }
+        
+        #combo-text {
+            position: absolute; top: -40px; right: 0; font-size: 2.5rem;
+            font-weight: 900; color: #00e5ff; opacity: 0; pointer-events: none;
+        }
+        #combo-text.pop { animation: pop-up 0.4s ease-out forwards; }
+        @keyframes pop-up { 
+            0% { opacity: 0; transform: translateY(10px) scale(0.5); }
+            50% { opacity: 1; transform: translateY(-10px) scale(1.2); }
+            100% { opacity: 0; transform: translateY(-20px) scale(1); }
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .fade-in { animation: fadeIn 0.5s ease; }
+    </style>
+</head>
+<body>
+
+<div class="theme-switcher">
+    <div class="thumb" id="thumb"></div>
+    <div class="node" onclick="changeTheme('dark')">🌙</div>
+    <div class="node" onclick="changeTheme('default')">🏠</div>
+    <div class="node" onclick="changeTheme('game')">🎮</div>
+</div>
+
+<div class="container fade-in">
+    <div id="menu-section" class="glass-panel">
+        <div class="header"><h1>科技英文 背單字網站</h1></div>
+        
+        <label class="section-label">1. 選擇課次</label>
+        <select id="chapterSelect" onchange="handleChapterChange(this.value)">
+            <option value="">-- 請選擇 --</option>
+            <option value="ch1.csv">Chapter 1 (COVID-19)</option>
+            <option value="ch2.csv">Chapter 2 (Tesla)</option>
+        </select>
+
+        <div id="star-summary" style="display:none; margin-bottom: 15px; font-weight: 700; color: var(--primary);"></div>
+        <label class="section-label" id="mode-label" style="display:none;">2. 選擇模式</label>
+        <div id="mode-grid" class="mode-grid">
+            <div class="mode-card" onclick="startQuiz('order')">
+                <h3>依序複習</h3>
+                <p>按照 CSV 的順序開始</p>
+            </div>
+            <div class="mode-card" onclick="startQuiz('shuffle')">
+                <h3>隨機挑戰</h3>
+                <p>打亂所有單字順序</p>
+            </div>
+            <div class="mode-card" onclick="startQuiz('random20')">
+                <h3>20題測驗</h3>
+                <p>快速練習隨機 20 題</p>
+            </div>
+            <div class="mode-card" onclick="startQuiz('starred')">
+                <h3>只看收藏</h3>
+                <p>只顯示本課已收藏單字</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="quiz-area">
+        <div id="combo-text">0 COMBO</div>
+        
+        <div id="vocab-card" class="vocab-card" onclick="toggleAnswer()">
+            <div id="star-icon" class="star-toggle" onclick="toggleStar(event)">★</div>
+            <button class="speak-btn" onclick="speakWord(event)">🔊 朗讀發音 (R)</button>
+            <div id="word" class="word-display"></div>
+            <div id="pos" class="pos-display"></div>
+            <div class="ans-box">
+                <div id="meaning" class="meaning-display"></div>
+                <div id="example" class="example-display"></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="btn-sub" onclick="backToMenu()">← 重選</button>
+            <button class="btn-sub" onclick="prevWord()">上一題 (←)</button>
+            <button class="btn-main" onclick="handleNextClick()">下一題 (Space / →)</button>
+        </div>
+
+        <div class="info-footer">
+            <span id="status">Progress: 0 / 0</span>
+            <span>方向鍵可切換題目 / R 朗讀 / S 收藏</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    let rawData = [];
+    let vocabList = [];
+    let currentIndex = 0;
+    let isRevealed = false;
+    let starredWords = new Set(JSON.parse(localStorage.getItem('tesla_stars')) || []);
+    let combo = 0;
+    
+    // 初始化主題：讀取上次儲存的主題，如果沒有則預設為 default
+    let currentTheme = localStorage.getItem('app-theme') || 'default';
+    changeTheme(currentTheme);
+
+    function changeTheme(theme) {
+        currentTheme = theme;
+        localStorage.setItem('app-theme', theme); // 記憶主題
+        document.body.classList.remove('dark-ui', 'game-ui');
+        if (theme === 'dark') document.body.classList.add('dark-ui');
+        if (theme === 'game') document.body.classList.add('game-ui');
+    }
+
+    function handleChapterChange(fileName) {
+        if (!fileName) return;
+        Papa.parse(`words/${fileName}`, {
+            download: true, header: true, skipEmptyLines: true,
+            complete: function(results) {
+                rawData = results.data.filter(row => row.word);
+                document.getElementById('mode-label').style.display = 'block';
+                document.getElementById('mode-grid').style.display = 'grid';
+                updateStarSummary();
+            }
+        });
+    }
+
+    function updateStarSummary() {
+        const starredInChapter = rawData.filter(item => starredWords.has(item.word));
+        const summary = document.getElementById('star-summary');
+        if (starredInChapter.length > 0) {
+            summary.innerText = `本課已收藏 ${starredInChapter.length} 個單字，可點「只看收藏」快速複習`;
+            summary.style.display = 'block';
+        } else {
+            summary.innerText = `本課尚未收藏任何單字`; 
+            summary.style.display = 'block';
+        }
+    }
+
+    function startQuiz(mode) {
+        if (mode === 'starred') {
+            const favorite = rawData.filter(item => starredWords.has(item.word));
+            if (favorite.length === 0) {
+                alert('本課尚無已收藏單字，請先在單字卡中點擊星號收藏。');
+                return;
+            }
+            vocabList = favorite;
+        } else {
+            vocabList = [...rawData];
+            if (mode === 'shuffle') shuffle(vocabList);
+            if (mode === 'random20') { shuffle(vocabList); vocabList = vocabList.slice(0, 20); }
+        }
+        currentIndex = 0;
+        document.getElementById('menu-section').style.display = 'none';
+        document.getElementById('quiz-area').style.display = 'block';
+        displayWord();
+    }
+
+    function displayWord() {
+        isRevealed = false;
+        document.getElementById('vocab-card').classList.remove('is-revealed');
+        const item = vocabList[currentIndex];
+        document.getElementById('word').innerText = item.word;
+        document.getElementById('pos').innerText = item.pos || "";
+        document.getElementById('meaning').innerText = item.meaning;
+        document.getElementById('example').innerText = item.example || "";
+        document.getElementById('status').innerText = `Progress: ${currentIndex + 1} / ${vocabList.length}`;
+        
+        const star = document.getElementById('star-icon');
+        star.classList.toggle('active', starredWords.has(item.word));
+    }
+
+    function toggleAnswer() {
+        if (!isRevealed && currentTheme === 'game') {
+            confetti({ particleCount: 40, spread: 70, origin: { y: 0.8 } });
+        }
+        isRevealed = true;
+        document.getElementById('vocab-card').classList.add('is-revealed');
+    }
+
+    // --- 修改：直接跳下一題，不再擋住 ---
+    function handleNextClick() {
+        if (currentTheme === 'game' && isRevealed) {
+            combo++;
+            const cb = document.getElementById('combo-text');
+            cb.innerText = `${combo} COMBO!`;
+            cb.classList.remove('pop');
+            void cb.offsetWidth; 
+            cb.classList.add('pop');
+        }
+        nextWord(); // 直接下一題
+    }
+
+    function nextWord() {
+        currentIndex = (currentIndex + 1) % vocabList.length;
+        displayWord();
+    }
+
+    function prevWord() {
+        combo = 0;
+        currentIndex = (currentIndex - 1 + vocabList.length) % vocabList.length;
+        displayWord();
+    }
+
+    function speakWord(event) {
+        if (event) event.stopPropagation();
+        const word = vocabList[currentIndex].word;
+        const msg = new SpeechSynthesisUtterance(word);
+        msg.lang = 'en-US';
+        window.speechSynthesis.speak(msg);
+    }
+
+    function toggleStar(event) {
+        if (event) event.stopPropagation();
+        const word = vocabList[currentIndex].word;
+        if (starredWords.has(word)) starredWords.delete(word);
+        else starredWords.add(word);
+        localStorage.setItem('tesla_stars', JSON.stringify(Array.from(starredWords)));
+        document.getElementById('star-icon').classList.toggle('active');
+    }
+
+    // --- 修改：返回選單不刷新，保留當前主題 ---
+    function backToMenu() {
+        document.getElementById('quiz-area').style.display = 'none';
+        document.getElementById('menu-section').style.display = 'block';
+        combo = 0;
+        updateStarSummary();
+    }
+
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    window.addEventListener('keydown', (e) => {
+        if (document.getElementById('quiz-area').style.display === 'block') {
+            if (e.code === 'Space' || e.code === 'Enter' || e.key === 'ArrowRight') {
+                e.preventDefault();
+                handleNextClick();
+            }
+            if (e.key === 'ArrowLeft' || e.key === 'b' || e.key === 'B') {
+                prevWord();
+            }
+            if (e.key === 'r' || e.key === 'R') speakWord();
+            if (e.key === 's' || e.key === 'S') toggleStar();
+        }
+    });
+</script>
+</body>
+</html>
