@@ -23,17 +23,17 @@
 <br />
 
 <div align="center">
-  <table border="0">
+  <table border="0" cellpadding="0" cellspacing="0">
     <tr>
-      <td width="50%" align="center">
-        <img src="https://github-readme-stats.vercel.app/api?username=glo2913&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117" height="150" />
+      <td width="50%" align="center" valign="center">
+        <img src="https://github.com/glo2913.png" width="150" style="border-radius: 50%;" alt="glo2913's Avatar" />
       </td>
-      <td width="50%" align="center">
+      <td width="50%" align="center" valign="center">
         <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=glo2913&layout=compact&theme=radical&hide_border=true&bg_color=0D1117" height="150" />
       </td>
     </tr>
   </table>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=glo2913&theme=radical&hide_border=true&background=0D1117" alt="GitHub Streak" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=glo2913&theme=radical&hide_border=true&background=0D1117" width="100%" max-width="800" alt="GitHub Streak" />
 </div>
 
 <br />
