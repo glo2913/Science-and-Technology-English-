@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     
     <style>
-        /* --- [1] 這裡完全是你原本的 CSS 樣式，完全沒動 --- */
+        /* --- [1] 基礎變數與重置 --- */
         :root {
             --primary: #e82127;
             --secondary: #171a20;
@@ -16,9 +16,9 @@
             --glass: rgba(255, 255, 255, 0.9);
             --shadow: 0 20px 50px rgba(0,0,0,0.1);
         }
-
+    
         * { box-sizing: border-box; }
-
+    
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background: var(--bg-gradient);
@@ -28,233 +28,263 @@
             justify-content: center;
             align-items: center;
             color: var(--secondary);
-            transition: all 0.5s ease; /* 為了切換模式平滑 */
-        }
-
-        .container {
-            width: 95%;
-            max-width: 900px;
-            padding: 40px;
             transition: all 0.5s ease;
+            padding: 15px; /* 手機版留白 */
         }
-
+    
+        /* --- [2] 響應式容器 --- */
+        .container {
+            width: 100%;
+            max-width: 900px;
+            transition: all 0.5s ease;
+            margin-top: 40px; /* 為右上角按鈕留空間 */
+        }
+    
         .header h1 {
-            font-size: 3rem;
+            font-size: clamp(1.8rem, 8vw, 3rem); /* 隨螢幕縮放字體 */
             font-weight: 800;
-            margin-bottom: 40px;
-            letter-spacing: -2px;
+            margin-bottom: clamp(20px, 5vw, 40px);
+            letter-spacing: -1px;
             text-align: center;
         }
-
+    
         .glass-panel {
             background: var(--glass);
             backdrop-filter: blur(10px);
-            border-radius: 30px;
-            padding: 50px;
+            border-radius: 25px;
+            padding: clamp(20px, 6vw, 50px);
             box-shadow: var(--shadow);
             border: 1px solid rgba(255,255,255,0.3);
         }
-
+    
         .section-label {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 700;
             color: var(--primary);
             text-transform: uppercase;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             display: block;
         }
-
+    
         select {
             width: 100%;
-            padding: 20px;
-            font-size: 1.2rem;
-            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.1rem;
+            border-radius: 12px;
             border: 2px solid #ddd;
             background: white;
             cursor: pointer;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
+            appearance: none; /* 去除原生樣式增加質感 */
         }
-
+    
         .mode-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-            display: none;
+            display: none; /* 由 JS 切換 */
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
         }
-
+    
         .mode-card {
             background: white;
-            padding: 30px 20px;
-            border-radius: 20px;
+            padding: 20px 10px;
+            border-radius: 15px;
             border: 2px solid transparent;
             cursor: pointer;
             transition: all 0.3s ease;
             text-align: center;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
-
+    
         .mode-card:hover {
             border-color: var(--primary);
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(232, 33, 39, 0.15);
+            transform: translateY(-5px);
         }
-
-        .mode-card h3 { margin: 0 0 10px 0; font-size: 1.3rem; }
-        .mode-card p { margin: 0; color: #666; font-size: 0.9rem; }
-
-        #quiz-area { display: none; width: 100%; position: relative;}
-
+    
+        .mode-card h3 { margin: 0 0 5px 0; font-size: 1.1rem; }
+        .mode-card p { margin: 0; color: #666; font-size: 0.8rem; }
+    
+        /* --- [3] 測驗區域與單字卡 --- */
+        #quiz-area { display: none; width: 100%; position: relative; }
+    
         .vocab-card {
             background: var(--glass);
-            padding: 60px 40px;
-            border-radius: 40px;
+            padding: clamp(30px, 10vw, 60px);
+            border-radius: 30px;
             box-shadow: var(--shadow);
             text-align: center;
             cursor: pointer;
-            min-height: 480px;
+            min-height: clamp(350px, 70vh, 480px);
             display: flex;
             flex-direction: column;
             justify-content: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             transition: transform 0.2s ease;
             position: relative;
         }
-
+    
         .star-toggle {
             position: absolute;
-            top: 30px;
-            right: 40px;
-            font-size: 2.5rem;
+            top: 20px;
+            right: 25px;
+            font-size: 2.2rem;
             color: #ccc;
-            transition: 0.3s;
             cursor: pointer;
+            z-index: 10;
+            transition: 0.3s;
         }
         .star-toggle.active { color: #ffca28; transform: scale(1.1); }
-
+    
         .speak-btn {
             background: #f0f0f0;
             border: none;
-            padding: 8px 15px;
+            padding: 8px 18px;
             border-radius: 50px;
-            font-size: 1rem;
+            font-size: 0.9rem;
             cursor: pointer;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             align-self: center;
             transition: 0.3s;
         }
-        .speak-btn:hover { background: #e0e0e0; }
-
-        .vocab-card:active { transform: scale(0.98); }
-
-        .word-display { font-size: 5rem; font-weight: 800; margin-bottom: 10px; letter-spacing: -2px; }
-        .pos-display { font-size: 1.5rem; color: #666; font-style: italic; margin-bottom: 30px; }
+    
+        .word-display { 
+            font-size: clamp(2.5rem, 12vw, 5rem); 
+            font-weight: 800; 
+            margin-bottom: 5px; 
+            letter-spacing: -1px;
+            word-break: break-word; 
+        }
+        .pos-display { font-size: 1.2rem; color: #666; font-style: italic; margin-bottom: 20px; }
         
         .ans-box {
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.4s ease;
         }
-
+    
         .is-revealed .ans-box { opacity: 1; transform: translateY(0); }
-
+    
         .meaning-display {
-            font-size: 2.5rem;
+            font-size: clamp(1.6rem, 8vw, 2.5rem);
             color: var(--primary);
             font-weight: 700;
             background: #fff5f5;
             display: inline-block;
-            padding: 10px 30px;
-            border-radius: 20px;
-            margin-bottom: 20px;
+            padding: 5px 25px;
+            border-radius: 15px;
+            margin-bottom: 15px;
         }
-
+    
         .example-display {
-            font-size: 1.2rem;
-            max-width: 600px;
+            font-size: 1.1rem;
+            max-width: 100%;
             margin: 0 auto;
-            line-height: 1.6;
+            line-height: 1.5;
             color: #444;
-            border-left: 5px solid var(--primary);
-            padding-left: 20px;
+            border-left: 4px solid var(--primary);
+            padding-left: 15px;
             text-align: left;
         }
-
-        .controls { display: flex; gap: 15px; align-items: center; }
+    
+        /* --- [4] 控制按鈕 (手機優化) --- */
+        .controls { 
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px; 
+        }
+        
         .btn-main {
-            flex: 2;
-            padding: 25px;
-            font-size: 1.5rem;
+            grid-column: span 2;
+            padding: clamp(15px, 4vw, 25px);
+            font-size: 1.4rem;
             font-weight: 700;
-            border-radius: 20px;
-            border: none;
+            border-radius: 18px;
             background: var(--secondary);
             color: white;
             border: 2px solid #ddd;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: 0.3s;
         }
-        .btn-main:hover { background: #333; }
-        
+    
         .btn-sub {
-            flex: 0.8;
-            padding: 25px;
-            font-size: 1rem;
-            border-radius: 20px;
+            padding: 15px;
+            font-size: 0.9rem;
+            border-radius: 15px;
             border: 2px solid #ddd;
             background: white;
             cursor: pointer;
             transition: 0.3s;
         }
-        .btn-sub:hover { background: #f9f9f9; border-color: #bbb; }
-
+    
         .info-footer {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
             margin-top: 20px;
             font-weight: 600;
             color: #666;
+            font-size: 0.85rem;
+            text-align: center;
         }
-
-        /* --- [2] 新增的主題與拉桿 CSS (外掛部分) --- */
-        /* 右上角拉桿樣式 */
+    
+        /* --- [5] 右上角主題拉桿 (修正精準度) --- */
         .theme-switcher {
-            position: fixed; top: 20px; right: 20px;
-            width: 130px; height: 45px; background: rgba(0,0,0,0.1);
-            border-radius: 25px; display: flex; align-items: center;
-            padding: 5px; cursor: pointer; border: 1px solid rgba(255,255,255,0.3); z-index: 2000;
+            position: fixed; 
+            top: 15px; 
+            right: 15px;
+            width: 135px; 
+            height: 42px; 
+            background: rgba(0,0,0,0.1);
+            backdrop-filter: blur(8px);
+            border-radius: 21px; 
+            display: flex; 
+            align-items: center;
+            justify-content: space-around;
+            padding: 0 4px; 
+            cursor: pointer; 
+            z-index: 9999; 
+            border: 1px solid rgba(255,255,255,0.2);
         }
-        .node { flex: 1; text-align: center; font-size: 1.2rem; z-index: 2; }
-        .thumb {
-            position: absolute; width: 38px; height: 35px; background: white;
-            border-radius: 20px; left: 46px; /* 預設中間 */
-            transition: 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2); z-index: 1;
+    
+        .theme-switcher .node {
+            flex: 1;
+            text-align: center;
+            font-size: 1.1rem;
+            z-index: 2;
+            line-height: 42px;
         }
-
-        /* 深色模式修正 */
-        body.dark-ui {
-            background: #1a1a1a;
-            color: #272222;
+    
+        .theme-switcher .thumb {
+            position: absolute; 
+            width: 38px; 
+            height: 34px; 
+            background: white;
+            border-radius: 17px; 
+            left: 50%;
+            transform: translateX(-50%); /* 預設中間 (Default) */
+            transition: 0.35s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15); 
+            z-index: 1;
         }
-        body.dark-ui .glass-panel, body.dark-ui .vocab-card { background: rgba(45,45,45,0.9); border-color: #444; }
+    
+        /* 主題切換時的拉桿位移 */
+        body.dark-ui .theme-switcher .thumb { left: 4px; transform: translateX(0); background: #555; }
+        body.game-ui .theme-switcher .thumb { left: auto; right: 4px; transform: translateX(0); background: #00e5ff; }
+    
+        /* 主題配色微調 */
+        body.dark-ui { background: #1a1a1a; }
+        body.dark-ui .glass-panel, body.dark-ui .vocab-card { background: rgba(45,45,45,0.95); border-color: #444; }
         body.dark-ui .word-display, body.dark-ui .header h1 { color: #fff; }
-        body.dark-ui .example-display { color: #ccc; }
-        body.dark-ui .meaning-display { background: #333; }
+        body.dark-ui .example-display { color: #bbb; }
         body.dark-ui .btn-sub, body.dark-ui select { background: #333; color: white; border-color: #555; }
-        body.dark-ui .thumb { left: 5px; background: #555; }
-
-        /* 遊戲模式修正 */
-        body.game-ui {
-            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-            color: #00e5ff;
-        }
-        body.game-ui .thumb { left: 87px; background: #00e5ff; }
-        body.game-ui .vocab-card { border: 2px solid #00e5ff; box-shadow: 0 0 20px rgba(0,229,255,0.3); }
+    
+        body.game-ui { background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%); color: #00e5ff; }
+        body.game-ui .vocab-card { border: 2px solid #00e5ff; box-shadow: 0 0 20px rgba(0,229,255,0.2); }
         body.game-ui .meaning-display { color: #00e5ff; background: rgba(0,229,255,0.1); }
         
         #combo-text {
-            position: absolute; top: -40px; right: 0; font-size: 2.5rem;
+            position: absolute; top: -35px; right: 0; font-size: 2rem;
             font-weight: 900; color: #00e5ff; opacity: 0; pointer-events: none;
         }
         #combo-text.pop { animation: pop-up 0.4s ease-out forwards; }
@@ -263,7 +293,16 @@
             50% { opacity: 1; transform: translateY(-10px) scale(1.2); }
             100% { opacity: 0; transform: translateY(-20px) scale(1); }
         }
-
+    
+        /* --- [6] 電腦版寬螢幕微調 --- */
+        @media (min-width: 650px) {
+            .controls { grid-template-columns: 0.8fr 1fr 2fr; }
+            .btn-main { grid-column: span 1; }
+            .info-footer { flex-direction: row; justify-content: space-between; }
+            .header h1 { letter-spacing: -2px; }
+            body { padding: 30px; }
+        }
+    
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         .fade-in { animation: fadeIn 0.5s ease; }
     </style>
