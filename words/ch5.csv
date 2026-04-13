@@ -14,7 +14,7 @@ remotely,(adv) 副詞,遠端地；遙控地,The operator remotely pilots the dro
 expendable,(adj) 形容詞,可犧牲的；可拋棄的,An expendable UAV may not be recoverable after a mission.
 recoverable,(adj) 形容詞,可回收的；可重新取回的,A recoverable UAV can be brought back safely.
 lethal,(adj) 形容詞,致命的,Some UAVs can carry a lethal payload for combat missions.
-payload,(n) 名詞,有效載荷,The payload may be a camera, sensor, or missile.
+payload,(n) 名詞,有效載荷,"The payload may be a camera, sensor, or missile."
 guided,(adj) 形容詞,導引的；受導引控制的,A guided system can designate and track a target.
 term,(n) 名詞,術語；專門用語,The term UAS is broader than UAV.
 coin,(v) 動詞,創造（新詞）；首次使用某說法,People coined the term drone because of its resemblance to a bee.
@@ -27,10 +27,10 @@ regulator,(n) 名詞,監管機構；調節器,Aviation regulators had different 
 aviation,(n./adj.) 名詞/形容詞,航空；飛行相關的,Aviation regulators monitor safety and operations.
 ground control station,(n) 名詞,地面控制站,The operator monitors the UAV from a ground control station.
 data link,(n) 名詞,數據連結；通訊鏈路,A data link transmits signals between operator and UAV.
-support equipment,(n) 名詞,支援設備；輔助裝備,A UAS includes the aircraft, data link, and support equipment.
-UAS,(n) 名詞,無人機系統,A UAS also needs a data link and support equipment.
+support equipment,(n) 名詞,支援設備；輔助裝備,"A UAS includes the aircraft, data link, and support equipment."
+UAS,(n) 名詞,無人機系統,"A UAS also needs a data link and support equipment."
 miniaturization,(n) 名詞,微型化；縮小,Miniaturization made micro air vehicles more practical.
-applicable,(adj) 形容詞,可適用的；適用的,The system is applicable to surveillance and logistics missions.
+applicable,(adj) 形容詞,可適用的；適用的,"The system is applicable to surveillance and logistics missions."
 echelon,(n) 名詞,梯隊；層級,UAVs exist at multiple echelons of military operation.
 pioneer,(v./n.) 動詞/名詞,開創；先驅者,Military leaders pioneered UAV development.
 deployable,(adj) 形容詞,可部署的；可配置的,A small tactical UAV is portable and deployable.
@@ -52,9 +52,9 @@ battlefield intelligence,(n) 名詞,戰場情報,Reconnaissance UAVs provide bat
 logistics,(n) 名詞,後勤；物資供應,Logistics drones can carry cargo to remote areas.
 cargo,(n) 名詞,貨物；貨運,A cargo UAV supports logistics missions.
 designate,(v) 動詞,指定；標定,A guided system can designate a target before launch.
-in terms of,(prep) 介系詞,就……而言；根據,In terms of altitude and range, MALE and HALE are different.
+in terms of,(prep) 介系詞,就……而言；根據,"In terms of altitude and range, MALE and HALE are different."
 range,(n) 名詞,航程；範圍,HALE systems have a longer range than tactical UAVs.
-altitude,(n) 名詞,高度；海拔,MALE and HALE differ in altitude and endurance.
+altitude,(n) 名詞,高度；海拔,"MALE and HALE differ in altitude and endurance."
 tactical,(adj) 形容詞,戰術的；戰場運用的,A small tactical system is portable and deployable.
 MALE,(abbr) 縮寫,中空長航時,A MALE UAV flies lower than a HALE platform.
 HALE,(abbr) 縮寫,高空長航時,A HALE system has higher altitude than a MALE system.
@@ -64,7 +64,7 @@ suborbital,(adj) 形容詞,次軌道的,A suborbital system flies higher than mo
 low earth orbit,(n) 名詞,低地球軌道,A suborbital path does not reach low earth orbit.
 hobbyist,(n) 名詞,業餘愛好者,A hobbyist may use a drone for recreational flying.
 RTF,(abbr) 縮寫,開箱即飛,An RTF drone is convenient for a hobbyist.
-COTS,(abbr) 縮寫,商用現成品,A hobby drone may use COTS support equipment and parts.
+COTS,(abbr) 縮寫,商用現成品,"A hobby drone may use COTS support equipment and parts."
 BNF,(abbr) 縮寫,綁定後即可飛,A BNF product is useful for an experienced hobbyist.
 stealth,(adj./n.) 形容詞/名詞,匿蹤的；匿蹤能力,A stealth UAV may conduct reconnaissance more safely.
 micro air vehicle,(n) 名詞,微型飛行器,A micro air vehicle carries less payload than a small tactical UAV.
