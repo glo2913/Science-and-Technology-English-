@@ -1,0 +1,76 @@
+word,pos,meaning,example
+gyroscope,(n) 名詞,陀螺儀；迴轉儀,Accelerometers and gyroscopes are devices widely used in contemporary portable electronic devices.
+accelerometer,(n) 名詞,加速規；加速度計,An accelerometer is a device that measures the acceleration of an object.
+contemporary,(adj) 形容詞,當代的；現代的,Accelerometers and gyroscopes are widely used in contemporary portable electronic devices.
+measure,(v./n.) 動詞/名詞,測量；措施,An accelerometer is a device that measures the acceleration of an object.
+acceleration,(n) 名詞,加速度,Acceleration is quantified in the unit meters per second per second (m/s²).
+quantified,(v.,p.p.) 動詞,被量化；以數值表示,Acceleration is quantified in the unit meters per second per second (m/s²).
+g-force,(n) 名詞,G力；重力加速度,Acceleration is popularly measured in terms of g-force (g).
+sensitive,(adj) 形容詞,敏感的；靈敏的,Highly sensitive accelerometers are components of inertial navigation systems.
+component,(n) 名詞,組件；元件,Accelerometers are components of inertial navigation systems for aircraft and missiles.
+inertial,(adj) 形容詞,慣性的,Accelerometers are components of inertial navigation systems for aircraft and missiles.
+axis,(n) 名詞,軸,Single and multi-axis models of accelerometer are available to detect magnitude and direction of acceleration.
+detect,(v) 動詞,偵測；察覺,The accelerometer can detect magnitude and direction of acceleration.
+magnitude,(n) 名詞,大小；強度,Accelerometers detect magnitude and direction of acceleration.
+sense,(v./n.) 動詞/名詞,感知；感應,Accelerometers can sense orientation, coordinate acceleration, vibration and shock.
+orientation,(n) 名詞,方位；方向,The screen adjusts based on the orientation of the device.
+coordinate,(n) 名詞,座標,Accelerometers sense coordinate acceleration in 3D space.
+vibration,(n) 名詞,震動；振動,Electronic devices use accelerometers to detect vibration and shock.
+shock,(n) 名詞,衝擊；撞擊,A free-fall sensor detects shock when the device is falling.
+align,(v) 動詞,使對齊,Electronic devices use accelerometers to align the screen depending on the direction the device is held.
+portrait,(n) 名詞,直式模式；肖像畫,The screen switches between portrait and landscape modes.
+landscape,(n) 名詞,橫式模式；風景畫,The screen switches between portrait and landscape modes.
+micromachined,(adj) 形容詞,微機械製程的,Micromachined accelerometers are increasingly present in video game controllers.
+free-fall,(n./adj.) 名詞/形容詞,自由落體,A free-fall sensor is an accelerometer used to detect if a system has been dropped and is falling.
+safety measures,(n,pl.) 名詞,安全措施,It provides safety measures such as parking the head of a hard disk to prevent a head crash.
+hard disk,(n) 名詞,硬碟,The accelerometer parks the head of a hard disk to prevent a head crash upon impact.
+upon,(prep) 介系詞,一…就,"The device parks the hard disk head upon impact."
+impact,(n) 名詞,衝擊；碰撞,The accelerometer parks the hard disk head upon impact.
+data logger,(n) 名詞,數據紀錄儀,Data loggers monitor handling operations for shipping containers.
+monitor,(v./n.) 動詞/名詞,監控；監測,Data loggers monitor handling operations for shipping containers.
+handling,(n) 名詞,搬運；操作,The sensor is used to monitor handling operations for shipping.
+calculate,(v) 動詞,計算,The length of time in free fall is used to calculate the height of drop.
+estimate,(v./n.) 動詞/名詞,估計；估算,Accelerometers are used to estimate the shock to the package.
+consumer,(n./adj.) 名詞/形容詞,消費者；消費的,This device is included in many common computer and consumer electronic products.
+mechanical,(adj) 形容詞,機械的,A gyroscope is a mechanical device comprised of a rotor and gimbals.
+comprised of,(phr) 片語,由…組成,A gyroscope is comprised of a rotor and two or more gimbals.
+rotor,(n) 名詞,轉子,The rotor is installed to spin about one axis.
+gimbal,(n) 名詞,萬向節,A gyroscope is comprised of a rotor and two or more gimbals.
+mounted,(v.,p.p.) 動詞,被安裝,The axis is mounted on an inner gimbal.
+inner,(adj) 形容詞,內部的,The inner gimbal is spinning about another axis.
+spinning,(v.,-ing) 動詞,旋轉中,The inner gimbal is spinning about another axis.
+outer,(adj) 形容詞,外部的,The outer gimbal or the gyroscope frame is mounted so as to pivot.
+frame,(n) 名詞,框架,The outer gimbal or the gyroscope frame is mounted so as to pivot.
+pivot,(v./n.) 動詞/名詞,旋轉；樞軸,The gyroscope frame is mounted so as to pivot about an axis.
+support,(n./v.) 名詞/動詞,支撐,The axis is in its own plane determined by the support.
+simultaneously,(adv) 副詞,同時地,The rotor simultaneously spins about one axis and oscillates about others.
+oscillating,(v.,-ing) 動詞,振盪的,The rotor is capable of oscillating about the two other axes.
+advent,(n) 名詞,出現；來臨,The advent of electric motors made gyrocompasses possible.
+functional,(adj) 形容詞,功能的；可運作的,The first functional gyrocompass was patented in 1904.
+gyrocompass,(n) 名詞,陀螺羅盤,Electric motors made it possible for developing gyrocompasses.
+patent,(n./v./adj.) 名詞/動詞,專利；取得專利,The first functional gyrocompass was patented in 1904.
+inventor,(n) 名詞,發明家,Inventors attempted to use gyroscopes as navigation systems.
+basis,(n) 名詞,基礎,Inventors used gyroscopes as the basis for navigational systems.
+navigational systems,(n,pl.) 名詞,導航系統,Inventors used gyroscopes as the basis for navigational systems.
+principles,(n,pl.) 名詞,原理,Similar principles were later employed in guidance systems.
+guidance,(n) 名詞,導引,Similar principles were used in inertial guidance systems.
+ballistic missiles,(n,pl.) 名詞,彈道飛彈,Guidance systems were used for ballistic missiles.
+prime,(adj) 形容詞,主要的,The gyroscope became the prime component for aircraft.
+miniaturize,(v) 動詞,使小型化,The race to miniaturize gyroscopes continued after the war.
+guided,(adj) 形容詞,導引的,Miniaturized gyroscopes were used in guided missiles.
+manufacturing,(n) 名詞,製造,The race resulted in manufacturing smaller gyroscopes.
+midget,(n./adj.) 名詞/形容詞,極小的,The development of midget gyroscopes followed.
+resulted in,(phr) 片語,導致,The race resulted in the development of midget gyroscopes.
+compass,(n) 名詞,羅盤,Gyroscopes are used in compasses.
+rotation,(n) 名詞,旋轉,The gyroscope allows calculation of rotation.
+incorporated,(v.,p.p.) 動詞,被納入,Designers have incorporated gyroscopes into devices.
+integration,(n) 名詞,整合,Integration improves motion detection.
+accurate,(adj) 形容詞,精確的,The system allows more accurate recognition.
+recognition,(n) 名詞,辨識,The system improves recognition of movement.
+previous,(adj) 形容詞,先前的,It performs better than the previous system.
+lone,(adj) 形容詞,單一的,Better than the previous lone accelerometer.
+frequently,(adv) 副詞,經常地,Gyroscopes are frequently combined with accelerometers.
+combined,(v.,p.p.) 動詞,被結合,They are combined for better sensing.
+robust,(adj) 形容詞,穩健的,The system provides robust sensing.
+direction- and motion-sensing,(n) 名詞,方向與運動感測,It provides direction- and motion-sensing.
+integrate,(v) 動詞,整合,Nintendo has integrated a gyroscope into the controller.
