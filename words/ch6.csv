@@ -36,25 +36,25 @@ mechanical,(adj) 形容詞,機械的,A gyroscope is a mechanical device comprise
 comprised of,(phr) 片語,由…組成,A gyroscope is comprised of a rotor and two or more gimbals.
 rotor,(n) 名詞,轉子,The rotor is installed to spin about one axis.
 gimbal,(n) 名詞,萬向節,A gyroscope is comprised of a rotor and two or more gimbals.
-mounted,(v.,p.p.) 動詞,被安裝,The axis is mounted on an inner gimbal.
+mounted,(v.) 動詞,被安裝,The axis is mounted on an inner gimbal.
 inner,(adj) 形容詞,內部的,The inner gimbal is spinning about another axis.
-spinning,(v.,-ing) 動詞,旋轉中,The inner gimbal is spinning about another axis.
+spinning,(v.) 動詞,旋轉中,The inner gimbal is spinning about another axis.
 outer,(adj) 形容詞,外部的,The outer gimbal or the gyroscope frame is mounted so as to pivot.
 frame,(n) 名詞,框架,The outer gimbal or the gyroscope frame is mounted so as to pivot.
 pivot,(v./n.) 動詞/名詞,旋轉；樞軸,The gyroscope frame is mounted so as to pivot about an axis.
 support,(n./v.) 名詞/動詞,支撐,The axis is in its own plane determined by the support.
 simultaneously,(adv) 副詞,同時地,The rotor simultaneously spins about one axis and oscillates about others.
-oscillating,(v.,-ing) 動詞,振盪的,The rotor is capable of oscillating about the two other axes.
+oscillating,(v.) 動詞,振盪的,The rotor is capable of oscillating about the two other axes.
 advent,(n) 名詞,出現；來臨,The advent of electric motors made gyrocompasses possible.
 functional,(adj) 形容詞,功能的；可運作的,The first functional gyrocompass was patented in 1904.
 gyrocompass,(n) 名詞,陀螺羅盤,Electric motors made it possible for developing gyrocompasses.
 patent,(n./v./adj.) 名詞/動詞,專利；取得專利,The first functional gyrocompass was patented in 1904.
 inventor,(n) 名詞,發明家,Inventors attempted to use gyroscopes as navigation systems.
 basis,(n) 名詞,基礎,Inventors used gyroscopes as the basis for navigational systems.
-navigational systems,(n,pl.) 名詞,導航系統,Inventors used gyroscopes as the basis for navigational systems.
-principles,(n,pl.) 名詞,原理,Similar principles were later employed in guidance systems.
+navigational systems,(n) 名詞,導航系統,Inventors used gyroscopes as the basis for navigational systems.
+principles,(n) 名詞,原理,Similar principles were later employed in guidance systems.
 guidance,(n) 名詞,導引,Similar principles were used in inertial guidance systems.
-ballistic missiles,(n,pl.) 名詞,彈道飛彈,Guidance systems were used for ballistic missiles.
+ballistic missiles,(n) 名詞,彈道飛彈,Guidance systems were used for ballistic missiles.
 prime,(adj) 形容詞,主要的,The gyroscope became the prime component for aircraft.
 miniaturize,(v) 動詞,使小型化,The race to miniaturize gyroscopes continued after the war.
 guided,(adj) 形容詞,導引的,Miniaturized gyroscopes were used in guided missiles.
@@ -63,14 +63,14 @@ midget,(n./adj.) 名詞/形容詞,極小的,The development of midget gyroscopes
 resulted in,(phr) 片語,導致,The race resulted in the development of midget gyroscopes.
 compass,(n) 名詞,羅盤,Gyroscopes are used in compasses.
 rotation,(n) 名詞,旋轉,The gyroscope allows calculation of rotation.
-incorporated,(v.,p.p.) 動詞,被納入,Designers have incorporated gyroscopes into devices.
+incorporated,(v.) 動詞,被納入,Designers have incorporated gyroscopes into devices.
 integration,(n) 名詞,整合,Integration improves motion detection.
 accurate,(adj) 形容詞,精確的,The system allows more accurate recognition.
 recognition,(n) 名詞,辨識,The system improves recognition of movement.
 previous,(adj) 形容詞,先前的,It performs better than the previous system.
 lone,(adj) 形容詞,單一的,Better than the previous lone accelerometer.
 frequently,(adv) 副詞,經常地,Gyroscopes are frequently combined with accelerometers.
-combined,(v.,p.p.) 動詞,被結合,They are combined for better sensing.
+combined,(v.) 動詞,被結合,They are combined for better sensing.
 robust,(adj) 形容詞,穩健的,The system provides robust sensing.
 direction- and motion-sensing,(n) 名詞,方向與運動感測,It provides direction- and motion-sensing.
 integrate,(v) 動詞,整合,Nintendo has integrated a gyroscope into the controller.
