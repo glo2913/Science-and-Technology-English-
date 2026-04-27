@@ -1,41 +1,81 @@
 word,pos,meaning,example
-signify,(v) 動詞,象徵；預示；表示。常用於描述某事物代表更深層的意義。,A red light signifies danger.
-strategically,(adv) 副詞,策略性地；有戰略地。描述帶有長期規劃的行動。,The company is strategically positioned in Asia.
-competence,(n) 名詞,資格；能力；勝任。也可指財產、權限（法律語境）。,Technical competence is essential for engineers.
-asset,(n) 名詞,資產；有價值的事物或人。知識可能是公司最重要的資產。,Employees are our greatest asset.
-expertise,(n) 名詞,專業技術；專門知識。通常透過多年實務累積而成。,She has expertise in data analysis.
-revalidate,(v) 動詞,再確認；重新驗證。re-（再）+ validate（確認）。,Knowledge must be revalidated regularly.
-tacit,(adj) 形容詞,無言的；緘默的；默示的。難以清楚表達；存在於人的腦中。,Experience produces tacit knowledge.
-explicit,(adj) 形容詞,明確的；清楚表達的。與 tacit 相反；可被寫下或記錄。,The manual gives explicit instructions.
-accessible,(adj) 形容詞,可取得的；易接近的。access（取用）+ -ible（能夠的）。,Knowledge should be accessible to all staff.
-infra,(adj) 形容詞,基礎的；基層的（常作字首）。例如 infrastructure 基礎建設。,IT infrastructure supports KM.
-blanket,(adj) 形容詞,總括的；全面的；包裹的。blanket proposal 指涵蓋所有事項的提案。,They rejected the blanket solution.
-tacit knowledge,(n. phr.) 名詞片語,內隱知識。存在於人腦中且難以文件化的知識。,Craftsmanship is mostly tacit knowledge.
-explicit knowledge,(n. phr.) 名詞片語,外顯知識。可以被寫下、整理與傳遞的知識。,Manuals store explicit knowledge.
-share,(v./n.) 動詞/名詞,分享；分擔 (v.)；股份 (n.)。知識管理強調跨團隊知識分享。,Employees share best practices online.
-emergence,(n) 名詞,出現；興起。為 emerge（v.）的名詞形式。,The emergence of the knowledge economy.
-regarded,(v. p.p.) 動詞,被視為；被看作。常用 regarded as… 結構。,Knowledge is regarded as a key asset.
-business sectors,(n. phr.) 名詞片語,商業部門；產業別。例如製造業、金融業、服務業。,KM spans many business sectors.
-persistently,(adv) 副詞,堅持地；持續地。描述持續反覆進行的行動。,The team persistently gathers feedback.
-ascertain,(v) 動詞,確定；查明。正式用法，類似 find out。,We must ascertain the facts.
-utilize,(v) 動詞,利用；使用。比 use 更正式的說法。,Utilize existing knowledge assets.
-intellectual,(adj) 形容詞,智力的；知識的。例如 intellectual property = 智慧財產。,Intellectual assets drive innovation.
-assemble,(v) 動詞,組合；聚集；裝配。將各部分整合成整體。,Assemble the data before analysis.
-formal,(adj) 形容詞,正式的；正規的。與 informal 相反。,Manuals are a formal way to share knowledge.
-systematic,(adj) 形容詞,系統的；有系統的。來自 system，表示有條理的方法。,Use a systematic approach to document knowledge.
-documented,(adj) 形容詞,有文件記錄的。documented knowledge 即 explicit knowledge。,Well-documented procedures reduce errors.
-manuals,(n. pl.) 名詞,手冊；操作指南。是外顯知識常見的載體。,Read the user manuals first.
-inadequate,(adj) 形容詞,不足的；不充分的。in-（不）+ adequate（足夠的）。,Manuals alone are inadequate.
-budget,(n) 名詞,預算。知識管理計畫需要專屬預算。,Allocate a budget for training.
-infrastructure,(n) 名詞,基礎設施；基礎建設。IT infrastructure 支撐 KM 運作。,A strong IT infrastructure is needed.
-proposals,(n. pl.) 名詞,提案；建議書。propose（v.）+ -al（n.）。,Submit KM proposals to management.
-priorities,(n. pl.) 名詞,優先事項；優先順序。單數為 priority。,Set clear priorities for the project.
-know-how,(n) 名詞,技術知識；實務竅門。常描述內隱技能。,Engineers build up know-how on the job.
-impractical,(adj) 形容詞,不切實際的；行不通的。im-（不）+ practical（實用的）。,Sharing all tacit knowledge is impractical.
-competitive advantage,(n. phr.) 名詞片語,競爭優勢。商業策略中的核心概念。,KM can be a source of competitive advantage.
-linchpin,(n) 名詞,關鍵；樞紐人物；要素。出自參考文獻 Webb 1998。,Trust is the linchpin of KM.
-implementation plan,(n. phr.) 名詞片語,實施計畫；執行計畫。將策略轉化為具體步驟。,Draft an implementation plan for KM.
-short-term needs,(n. phr.) 名詞片語,短期需求。常與 long-term needs 對比。,Address short-term needs first.
-traditional economy,(n. phr.) 名詞片語,傳統經濟。主要依靠土地、勞力與資本。,The traditional economy valued physical assets.
-knowledge economy,(n. phr.) 名詞片語,知識經濟。價值主要來自知識與資訊。,We live in a knowledge economy.
-point of responsibility,(n. phr.) 名詞片語,權責單位；負責單位。負責知識管理的角色或團隊。,Every KM initiative needs a point of responsibility.
+signify,(v) 動詞,象徵；預示；表示。,A red light signifies danger.
+strategically,(adv) 副詞,策略性地；有戰略地。,The company is strategically positioned in Asia.
+competence,(n) 名詞,資格；能力；勝任。,Technical competence is essential for engineers.
+asset,(n) 名詞,資產；有價值的事物或人。,Employees are our greatest asset.
+expertise,(n) 名詞,專業技術；專門知識。,She has expertise in data analysis.
+revalidate,(v) 動詞,再確認；重新驗證。,Knowledge must be revalidated regularly.
+tacit,(adj) 形容詞,無言的；緘默的；默示的。,Experience produces tacit knowledge.
+explicit,(adj) 形容詞,明確的；清楚表達的。,The manual gives explicit instructions.
+accessible,(adj) 形容詞,可取得的；易接近的。,Knowledge should be accessible to all staff.
+infra,(adj) 形容詞,基礎的；基層的（常作字首）。,IT infrastructure supports KM.
+blanket,(adj) 形容詞,總括的；全面的；包裹的。,They rejected the blanket solution.
+tacit knowledge,(n) 名詞,內隱知識。,Craftsmanship is mostly tacit knowledge.
+explicit knowledge,(n) 名詞,外顯知識。,Manuals store explicit knowledge.
+share,(v./n.) 動詞/名詞,分享、分擔；一股（股票的基本單位）。,Employees share best practices online.
+emergence,(n) 名詞,出現；興起。,The emergence of the knowledge economy.
+regarded,(v) 動詞,被視為；被看作。,Knowledge is regarded as a key asset.
+business sectors,(n) 名詞,商業部門；產業別。,KM spans many business sectors.
+persistently,(adv) 副詞,堅持地；持續地。,The team persistently gathers feedback.
+ascertain,(v) 動詞,確定；查明。,We must ascertain the facts.
+utilize,(v) 動詞,利用；使用（較正式）。,Utilize existing knowledge assets.
+intellectual,(adj) 形容詞,智力的；知識的。,Intellectual assets drive innovation.
+assemble,(v) 動詞,組合；聚集；裝配。,Assemble the data before analysis.
+formal,(adj) 形容詞,正式的；正規的。,Manuals are a formal way to share knowledge.
+systematic,(adj) 形容詞,系統的；有系統的。,Use a systematic approach to document knowledge.
+documented,(adj) 形容詞,有文件記錄的。,Well-documented procedures reduce errors.
+manuals,(n) 名詞,手冊；操作指南。,Read the user manuals first.
+inadequate,(adj) 形容詞,不足的；不充分的。,Manuals alone are inadequate.
+budget,(n) 名詞,預算。,Allocate a budget for training.
+infrastructure,(n) 名詞,基礎設施；基礎建設。,A strong IT infrastructure is needed.
+proposals,(n) 名詞,提案；建議書。,Submit KM proposals to management.
+priorities,(n) 名詞,優先事項；優先順序。,Set clear priorities for the project.
+know-how,(n) 名詞,技術知識；實務竅門。,Engineers build up know-how on the job.
+impractical,(adj) 形容詞,不切實際的；行不通的。,Sharing all tacit knowledge is impractical.
+competitive advantage,(n) 名詞,競爭優勢。,KM can be a source of competitive advantage.
+linchpin,(n) 名詞,關鍵；樞紐人物/要素。,Trust is the linchpin of KM.
+implementation plan,(n) 名詞,實施計畫；執行計畫。,Draft an implementation plan for KM.
+short-term needs,(n) 名詞,短期需求。,Address short-term needs first.
+traditional economy,(n) 名詞,傳統經濟。,The traditional economy valued physical assets.
+knowledge economy,(n) 名詞,知識經濟。,We live in a knowledge economy.
+point of responsibility,(n) 名詞,權責單位；負責單位/對象。,Every KM initiative needs a point of responsibility.word,pos,meaning,example
+signify,(v) 動詞,象徵；預示；表示。,A red light signifies danger.
+strategically,(adv) 副詞,策略性地；有戰略地。,The company is strategically positioned in Asia.
+competence,(n) 名詞,資格；能力；勝任。,Technical competence is essential for engineers.
+asset,(n) 名詞,資產；有價值的事物或人。,Employees are our greatest asset.
+expertise,(n) 名詞,專業技術；專門知識。,She has expertise in data analysis.
+revalidate,(v) 動詞,再確認；重新驗證。,Knowledge must be revalidated regularly.
+tacit,(adj) 形容詞,無言的；緘默的；默示的。,Experience produces tacit knowledge.
+explicit,(adj) 形容詞,明確的；清楚表達的。,The manual gives explicit instructions.
+accessible,(adj) 形容詞,可取得的；易接近的。,Knowledge should be accessible to all staff.
+infra,(adj) 形容詞,基礎的；基層的（常作字首）。,IT infrastructure supports KM.
+blanket,(adj) 形容詞,總括的；全面的；包裹的。,They rejected the blanket solution.
+tacit knowledge,(n) 名詞,內隱知識。,Craftsmanship is mostly tacit knowledge.
+explicit knowledge,(n) 名詞,外顯知識。,Manuals store explicit knowledge.
+share,(v./n.) 動詞/名詞,分享、分擔；一股（股票的基本單位）。,Employees share best practices online.
+emergence,(n) 名詞,出現；興起。,The emergence of the knowledge economy.
+regarded,(v) 動詞,被視為；被看作。,Knowledge is regarded as a key asset.
+business sectors,(n) 名詞,商業部門；產業別。,KM spans many business sectors.
+persistently,(adv) 副詞,堅持地；持續地。,The team persistently gathers feedback.
+ascertain,(v) 動詞,確定；查明。,We must ascertain the facts.
+utilize,(v) 動詞,利用；使用（較正式）。,Utilize existing knowledge assets.
+intellectual,(adj) 形容詞,智力的；知識的。,Intellectual assets drive innovation.
+assemble,(v) 動詞,組合；聚集；裝配。,Assemble the data before analysis.
+formal,(adj) 形容詞,正式的；正規的。,Manuals are a formal way to share knowledge.
+systematic,(adj) 形容詞,系統的；有系統的。,Use a systematic approach to document knowledge.
+documented,(adj) 形容詞,有文件記錄的。,Well-documented procedures reduce errors.
+manuals,(n) 名詞,手冊；操作指南。,Read the user manuals first.
+inadequate,(adj) 形容詞,不足的；不充分的。,Manuals alone are inadequate.
+budget,(n) 名詞,預算。,Allocate a budget for training.
+infrastructure,(n) 名詞,基礎設施；基礎建設。,A strong IT infrastructure is needed.
+proposals,(n) 名詞,提案；建議書。,Submit KM proposals to management.
+priorities,(n) 名詞,優先事項；優先順序。,Set clear priorities for the project.
+know-how,(n) 名詞,技術知識；實務竅門。,Engineers build up know-how on the job.
+impractical,(adj) 形容詞,不切實際的；行不通的。,Sharing all tacit knowledge is impractical.
+competitive advantage,(n) 名詞,競爭優勢。,KM can be a source of competitive advantage.
+linchpin,(n) 名詞,關鍵；樞紐人物/要素。,Trust is the linchpin of KM.
+implementation plan,(n) 名詞,實施計畫；執行計畫。,Draft an implementation plan for KM.
+short-term needs,(n) 名詞,短期需求。,Address short-term needs first.
+traditional economy,(n) 名詞,傳統經濟。,The traditional economy valued physical assets.
+knowledge economy,(n) 名詞,知識經濟。,We live in a knowledge economy.
+point of responsibility,(n) 名詞,權責單位；負責單位/對象。,Every KM initiative needs a point of responsibility.
